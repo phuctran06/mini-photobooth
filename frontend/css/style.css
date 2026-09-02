@@ -6,35 +6,59 @@ body {
     margin: 0;
     min-height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     font-family: Arial, sans-serif;
 
     background: #f5f5f5;
+    color: #222;
 }
 
 .photobooth {
     width: 90%;
-    max-width: 700px;
+    max-width: 800px;
 
-    text-align: center;
+    margin: 40px auto;
 }
 
-h1 {
-    margin-bottom: 24px;
+
+/* =========================
+   Header
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    margin: 0 0 8px;
+}
+
+.header p {
+    margin: 0;
+    color: #666;
+}
+
+
+/* =========================
+   Camera
+========================= */
+
+.camera-section {
+    width: 100%;
 }
 
 .camera-container {
+    position: relative;
+
     width: 100%;
+
     aspect-ratio: 4 / 3;
 
     background: #222;
 
     overflow: hidden;
 
-    border-radius: 12px;
+    border-radius: 16px;
 }
 
 #camera {
@@ -44,27 +68,51 @@ h1 {
     object-fit: cover;
 }
 
-/*
-    Canvas chỉ dùng để xử lý ảnh.
-    Không cần hiển thị trực tiếp.
-*/
-#canvas {
+
+/* =========================
+   Countdown
+========================= */
+
+#countdown {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 120px;
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px black,
+        0 0 25px black;
+
     display: none;
 }
 
+
+/* =========================
+   Controls
+========================= */
+
 .controls {
     display: flex;
+
     justify-content: center;
 
     gap: 12px;
 
-    margin-top: 20px;
+    margin: 24px 0;
 }
 
-button {
+.button {
     padding: 12px 24px;
 
     border: none;
+
     border-radius: 8px;
 
     background: #222;
@@ -75,26 +123,153 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    opacity: 0.8;
+.button:hover {
+    opacity: 0.85;
 }
 
-button:active {
-    transform: scale(0.98);
+.button:disabled {
+    opacity: 0.4;
+
+    cursor: not-allowed;
 }
 
-.preview-container {
+.button.primary {
+    background: #111;
+}
+
+
+/* =========================
+   Photos
+========================= */
+
+.photos-section {
     margin-top: 30px;
 }
 
-.preview-container h2 {
-    margin-bottom: 12px;
+.photos-section h2,
+.result-section h2 {
+    text-align: center;
 }
 
-#preview {
+.photo-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+.photo-slot {
+    position: relative;
+
+    aspect-ratio: 4 / 3;
+
+    background: #ddd;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.photo-slot span {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #222;
+    color: white;
+
+    font-weight: bold;
+
+    z-index: 2;
+}
+
+.photo-slot img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+
+/* =========================
+   Result
+========================= */
+
+.result-section {
+    margin-top: 40px;
+
+    text-align: center;
+}
+
+.result-section img {
     display: block;
 
     width: 100%;
+    max-width: 400px;
+
+    margin: 20px auto;
 
     border-radius: 12px;
+}
+
+
+/* =========================
+   Utility
+========================= */
+
+.hidden {
+    display: none;
+}
+
+#canvas {
+    display: none;
+}
+
+#status {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #666;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 600px) {
+
+    .photobooth {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+    }
+
+    .button {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
 }

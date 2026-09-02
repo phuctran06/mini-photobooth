@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>MiniPhotobooth</title>
 
@@ -13,39 +16,139 @@
 
     <main class="photobooth">
 
-        <h1>MiniPhotobooth</h1>
+        <header class="header">
+            <h1>MiniPhotobooth</h1>
+            <p>Capture your moments</p>
+        </header>
 
-        <div class="camera-container">
-            <video
-                id="camera"
-                autoplay
-                playsinline
-            ></video>
-        </div>
 
-        <!-- Canvas dùng để chụp frame từ camera -->
-        <canvas id="canvas"></canvas>
+        <!-- =========================
+             Camera
+        ========================== -->
 
-        <div class="controls">
-            <button id="startCamera">
+        <section class="camera-section">
+
+            <div class="camera-container">
+
+                <video
+                    id="camera"
+                    autoplay
+                    playsinline
+                ></video>
+
+                <div id="countdown"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Controls
+        ========================== -->
+
+        <section class="controls">
+
+            <button
+                id="startCamera"
+                class="button primary"
+            >
                 Start Camera
             </button>
 
-            <button id="capturePhoto">
-                Capture
+            <button
+                id="startSession"
+                class="button"
+                disabled
+            >
+                Take Photos
             </button>
-        </div>
 
-        <div class="preview-container">
-            <h2>Preview</h2>
+            <button
+                id="retake"
+                class="button"
+                disabled
+            >
+                Retake
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             Photo Preview
+        ========================== -->
+
+        <section class="photos-section">
+
+            <h2>Your Photos</h2>
+
+            <div class="photo-grid">
+
+                <div class="photo-slot">
+                    <span>1</span>
+                    <img id="photo1" alt="Photo 1">
+                </div>
+
+                <div class="photo-slot">
+                    <span>2</span>
+                    <img id="photo2" alt="Photo 2">
+                </div>
+
+                <div class="photo-slot">
+                    <span>3</span>
+                    <img id="photo3" alt="Photo 3">
+                </div>
+
+                <div class="photo-slot">
+                    <span>4</span>
+                    <img id="photo4" alt="Photo 4">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Result
+        ========================== -->
+
+        <section
+            id="resultSection"
+            class="result-section hidden"
+        >
+
+            <h2>Your Photostrip</h2>
 
             <img
-                id="preview"
-                alt="Captured photo"
+                id="resultImage"
+                alt="Final photostrip"
             >
-        </div>
+
+            <button
+                id="downloadButton"
+                class="button primary"
+            >
+                Download
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             Hidden Canvas
+        ========================== -->
+
+        <canvas id="canvas"></canvas>
+
+
+        <!-- Status -->
+
+        <p id="status"></p>
 
     </main>
+
 
     <script src="./js/app.js"></script>
 
