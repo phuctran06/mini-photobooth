@@ -457,33 +457,33 @@ function retakePhotos() {
 // DOWNLOAD RESULT
 // ==========================================
 
-function downloadResult() {
+async function downloadResult() {
+    if (!resultImage.src) return;
 
-    if (!resultImage.src) {
-        return;
+    try {
+        const response = await fetch(resultImage.src);
+
+        if (!response.ok) {
+            throw new Error("Cannot download image.");
+        }
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "mini-photobooth.jpg";
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(url);
+    } catch (error) {
+        console.error(error);
+        statusText.textContent = "Cannot download photostrip.";
     }
-
-
-    const link =
-        document.createElement("a");
-
-
-    link.href =
-        resultImage.src;
-
-
-    link.download =
-        "mini-photobooth.jpg";
-
-
-    document.body.appendChild(link);
-
-
-    link.click();
-
-
-    document.body.removeChild(link);
-
 }
 
 
