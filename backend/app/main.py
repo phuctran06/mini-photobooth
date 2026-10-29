@@ -11,6 +11,7 @@ from app.routes.photobooth import router as photobooth_router
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 OUTPUT_DIR = BASE_DIR / "outputs"
 
 
