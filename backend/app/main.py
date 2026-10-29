@@ -7,6 +7,7 @@ from fastapi.staticfiles import StaticFiles
 from app.routes.photobooth import router as photobooth_router
 
 
+
 # Paths
 
 BASE_DIR = Path(__file__).resolve().parent.parent
