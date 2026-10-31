@@ -10,6 +10,7 @@ const statusText = document.getElementById("status");
 const startCameraButton =
     document.getElementById("startCamera");
 
+
 const startSessionButton =
     document.getElementById("startSession");
 
