@@ -2,6 +2,7 @@
 // DOM ELEMENTS
 // ==========================================
 
+
 const camera = document.getElementById("camera");
 const canvas = document.getElementById("canvas");
 const countdown = document.getElementById("countdown");
