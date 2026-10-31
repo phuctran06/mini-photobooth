@@ -8,6 +8,7 @@ const countdown = document.getElementById("countdown");
 const statusText = document.getElementById("status");
 
 const startCameraButton =
+    
     document.getElementById("startCamera");
 
 const startSessionButton =
