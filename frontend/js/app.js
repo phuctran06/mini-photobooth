@@ -7,6 +7,7 @@ const canvas = document.getElementById("canvas");
 const countdown = document.getElementById("countdown");
 const statusText = document.getElementById("status");
 
+
 const startCameraButton =
     document.getElementById("startCamera");
 
