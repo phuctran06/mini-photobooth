@@ -13,6 +13,7 @@ const startCameraButton =
 const startSessionButton =
     document.getElementById("startSession");
 
+
 const retakeButton =
     document.getElementById("retake");
 
