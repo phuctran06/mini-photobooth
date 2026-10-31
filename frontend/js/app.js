@@ -3,6 +3,7 @@
 // ==========================================
 
 const camera = document.getElementById("camera");
+
 const canvas = document.getElementById("canvas");
 const countdown = document.getElementById("countdown");
 const statusText = document.getElementById("status");
